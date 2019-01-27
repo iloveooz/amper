@@ -1,0 +1,46 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TAmper *Amper;
+//---------------------------------------------------------------------------
+__fastcall TAmper::TAmper(TComponent* Owner)
+        : TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+
+
+
+
+
+void __fastcall TAmper::Button1Click(TObject *Sender) {
+   // кнопка - Вычислить
+   double u = 0;
+   double r = 0;
+   double i = 0;
+
+   // get data
+   u = StrToFloat(Edit1->Text);
+   r = StrToFloat(Edit2->Text);
+
+   // solving
+   i = u / r;
+
+   // output result
+   Label4->Caption = "TOK: " + FloatToStrF(i, ffGeneral, 7, 2) + " A.";
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TAmper::Button2Click(TObject *Sender) {
+   // exit program
+   Amper->Close();
+
+}
+//---------------------------------------------------------------------------
+
